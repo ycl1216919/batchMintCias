@@ -1,7 +1,14 @@
 # coss 批量自转脚本
 
-## 安装
+##助记词转私钥
+把你的助记词导入小青蛙钱包（leap wallet），然后导出私钥，然后私钥导入keplr钱包，然后就能在keplr看到你的私钥了
+leap显示的私钥和keplr的不一样
 
+##RPC
+RPC 记得自己去 blockpi 申请，或者用公共的也可以。
+https://github.com/cosmos/chain-registry/blob/7109d85fb58c8ac995a491912ddf9196834eda0b/cosmoshub/chain.json#L275
+
+## 安装
 ```
 yarn install
 ```
