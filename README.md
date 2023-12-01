@@ -15,11 +15,6 @@ NODE_URL=
 PRIVATE_KEY=
 ```
 
-## 运行
-```
-node index.js
-```
-
 ## 钱包批量生成
 ```
 node wallet_gen.js
@@ -34,3 +29,9 @@ node transfer.js
 ```
 请先执行批量生成，然后再执行批量转账
 默认给生成的 cosmos_wallets.json 里面所有的地址转1个ATOM ，请按需调整
+
+## 批量mint
+用cosmos_wallets.json里的所有地址来mint，没有的话按相同格式自行添加
+```
+node index.js
+```
