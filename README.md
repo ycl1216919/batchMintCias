@@ -27,7 +27,7 @@ PRIVATE_KEY=
 node wallet_gen.js
 ```
 
-代码里面可以调整生成的个数
+代码里面可以调整生成的个数，执行后会生成一个 cosmos_wallets.json 文件
 
 ## 批量转账
 
@@ -35,10 +35,10 @@ node wallet_gen.js
 node transfer.js
 ```
 请先执行批量生成，然后再执行批量转账
-默认给生成的 cosmos_wallets.json 里面所有的地址转1个ATOM ，请按需调整
+默认给生成的 cosmos_wallets.json 里面所有的地址转 1 个 ATOM ，请按需调整
 
 ## 批量mint
-用cosmos_wallets.json里的所有地址来mint，没有的话按相同格式自行添加
+用 cosmos_wallets.json 里的所有地址来 mint，没有的话按相同格式自行添加
 ```
 node index.js
 ```
