@@ -9,7 +9,7 @@ async function generateCosmosWallets(numberOfWallets) {
     for (let i = 0; i < numberOfWallets; i++) {
         const mnemonic = bip39.generateMnemonic();
         const keys = crypto.getKeysFromMnemonic(mnemonic);
-        const wallet = await DirectSecp256k1Wallet.fromKey(Buffer.from(keys.privateKey), "cosmos");
+        const wallet = await DirectSecp256k1Wallet.fromKey(Buffer.from(keys.privateKey), "celestia");
         const [account] = await wallet.getAccounts();
         const walletAddress = account.address;
         walletData.push({
@@ -22,6 +22,6 @@ async function generateCosmosWallets(numberOfWallets) {
     fs.writeFileSync('cosmos_wallets.json', JSON.stringify(walletData, null, 4));
 }
 
-generateCosmosWallets(10).then(() => {
+generateCosmosWallets(1).then(() => {
     console.log("Wallets generated and saved to cosmos_wallets.json");
 });
