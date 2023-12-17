@@ -6,21 +6,21 @@ const {base64FromBytes} = require("cosmjs-types/helpers");
 
 async function performTransaction(walletInfo, numberOfTimes) {
     const rpcEndpoint = process.env.NODE_URL;
-    const gasPrice = GasPrice.fromString("0.025uatom");
-    const wallet = await DirectSecp256k1Wallet.fromKey(Buffer.from(walletInfo.privateKey, "hex"), "cosmos");
+    const gasPrice = GasPrice.fromString("0.025utia");
+    const wallet = await DirectSecp256k1Wallet.fromKey(Buffer.from(walletInfo.privateKey, "hex"), "celestia");
     const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, wallet, { gasPrice: gasPrice });
     const fee = {
-        amount: coins(400, "uatom"),
+        amount: coins(400, "utia"),
         gas: "80000",
     };
     for (let i = 0; i < numberOfTimes; i++) {
         try {
             const [account] = await wallet.getAccounts();
-            const amount = coins(1, "uatom");
-            const memo = 'data:,{"op":"mint","amt":10000,"tick":"coss","p":"crc-20"}';
+            const amount = coins(1, "utia");
+            const memo = 'data:,{"op":"mint","amt":10000,"tick":"cias","p":"crc-20"}';
 
             const result = await client.sendTokens(account.address, account.address, amount, fee, base64FromBytes(Buffer.from(memo, 'utf8')));
-            console.log(`${account.address}, 第 ${i + 1} 次操作成功: ${'https://www.mintscan.io/cosmos/tx/' + result.transactionHash}`);
+            console.log(`${account.address}, 第 ${i + 1} 次操作成功: ${'https://www.mintscan.io/celestia/account/' + result.transactionHash}`);
         } catch (error) {
             console.error(`第 ${i + 1} 次操作失败: `, error);
         }
